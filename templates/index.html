@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/base/css/index.css">
+{% endblock %}
+{% block content %}
+    <!--显示分类-->
+    <div id="category" class="float-left">
+        <ul>
+            <li></li>
+            <li><a class="btn btn-danger"><span class="glyphicon glyphicon-tags"
+                                                style="padding-right: 5px"></span>所有</a></li>
+            {% for cate in cates %}
+                <li><a class="btn btn-success">{{ cate.title }}</a></li>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+    <div id="art" class="float-left">
+        <ul>
+            {% for art in arts %}
+                <li>
+                    <dl>
+                        <dt>
+                            <img src="/static/upload/{{ art.cover }}"
+                                 width="120" height="140">
+                        </dt>
+                        <dd><b>{{ art.title }}</b></dd>
+                        <dd>作者:&nbsp;{{ art.author }}</dd>
+                        <dd class="text-center"><a class="btn btn-primary">阅读</a></dd>
+                    </dl>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+{% endblock %}
